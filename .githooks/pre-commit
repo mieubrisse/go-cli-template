@@ -1,18 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# === BEADS PREFIX GUARD ===
-# Blocks commits until the beads prefix has been set to a real value.
-# Remove this section after running /initialize-repo.
-if grep -q "REPLACE-ME-WITH-YOUR-PROJECT-PREFIX" .beads/config.yaml 2>/dev/null; then
-    echo "❌ Beads prefix has not been configured."
-    echo ""
-    echo "Run /initialize-repo to set up this project, or manually edit"
-    echo ".beads/config.yaml and set issue-prefix to your project name."
-    exit 1
-fi
-# === END BEADS PREFIX GUARD ===
-
 # Clear git environment variables that leak into child processes.
 # When git invokes this hook, it sets GIT_DIR, GIT_INDEX_FILE, etc.
 # These cause go test to fail when tests run their own git commands
