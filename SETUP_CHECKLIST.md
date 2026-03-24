@@ -8,6 +8,7 @@ This checklist is consumed by the `/initialize-repo` skill. Run that skill inste
 - [ ] Find-and-replace `project-replaceme` with actual project name across all files
 - [ ] Verify Go code compiles after replacement: `cd src && go build ./...`
 - [ ] Initialize beads: `bd init --shared-server --prefix <project-name>`
+- [ ] Remove `AGENTS.md` from `.gitignore` (bd init created it and it should be tracked)
 - [ ] Choose a license and create the LICENSE file
 - [ ] Update the `license` field in `.goreleaser.yaml`
 - [ ] Create Homebrew tap repo: `gh repo create <owner>/homebrew-<project> --public --description "Homebrew tap for <project>"`

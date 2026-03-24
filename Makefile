@@ -40,10 +40,7 @@ check:
 		exit 1; \
 	fi
 	@echo "✓ Formatting OK"
-	@echo "Running go vet..."
-	@cd src && go vet ./...
-	@echo "✓ Vet OK"
-	@echo "Running golangci-lint..."
+	@echo "Running linter..."
 	@cd src && golangci-lint run ./...
 	@echo "✓ Lint OK"
 	@echo "Running tests..."

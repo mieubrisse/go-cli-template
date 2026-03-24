@@ -70,7 +70,7 @@ make build
 |---|---|
 | `make build` | Full pipeline: configure hooks, check, compile |
 | `make compile` | Build the binary only (skip checks) |
-| `make check` | Run formatting, static analysis, and tests |
+| `make check` | Run formatting, linting (golangci-lint), and tests |
 | `make test` | Run the test suite only |
 | `make run` | Build and run the binary (pass args via `ARGS="..."`) |
 | `make clean` | Remove build artifacts |
