@@ -96,8 +96,10 @@ _build/project-replaceme version
 
 ```
 src/                    Go source code
-  cmd/                  CLI command definitions (Cobra)
+  cmd/                  CLI commands (one directory per command)
+    version/            "version" subcommand
   internal/             Internal packages
+    buildinfo/          Build-time version injection
   main.go              Entry point
 _build/                 Compiled binary (gitignored)
 .githooks/              Git hooks (activated by make setup)

@@ -1,4 +1,4 @@
-VERSION_PKG := github.com/owner-replaceme/project-replaceme/internal/version
+VERSION_PKG := github.com/owner-replaceme/project-replaceme/internal/buildinfo
 
 GIT_DIRTY := $(shell git diff --quiet 2>/dev/null && echo clean || echo dirty)
 GIT_HASH  := $(shell git rev-parse --short HEAD 2>/dev/null || echo unknown)

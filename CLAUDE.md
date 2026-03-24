@@ -8,9 +8,10 @@ Project Structure
 
 ```
 src/                    Go source code (module: github.com/owner-replaceme/project-replaceme)
-  cmd/                  Cobra command definitions
+  cmd/                  Cobra command definitions (directory-per-command)
+    version/            "version" subcommand
   internal/             Internal packages (not importable by other modules)
-    version/            Build-time version injection
+    buildinfo/          Build-time version injection via ldflags
   main.go              Entry point — calls cmd.Execute()
 _build/                 Build output (gitignored)
 .githooks/              Git hooks (configured via make setup)
@@ -20,6 +21,27 @@ _build/                 Build output (gitignored)
 ```
 
 All Go code lives under `src/`. The module path is `github.com/owner-replaceme/project-replaceme`. The `go.mod` file is in `src/`, so run Go commands from that directory (or use the Makefile, which handles this).
+
+Command Structure
+-----------------
+
+Each command lives in its own package under `src/cmd/`, one directory per level of the command hierarchy:
+
+```
+src/cmd/
+  root.go                  Root command (package cmd)
+  version/version.go       "version" subcommand (package version)
+  config/                  "config" subcommand group (package config)
+    config.go
+    get/get.go             "config get" (package get)
+    set/set.go             "config set" (package set)
+```
+
+Each command package exports:
+- `CmdStr` — the command name as a constant
+- `Cmd` — the `*cobra.Command` instance
+
+Parent commands wire children via `init()` using `AddCommand()`. Use `/new-command` to scaffold new commands following this pattern.
 
 Building and Running
 --------------------
@@ -55,15 +77,14 @@ cd src && go get <package>@latest && go mod tidy
 
 Do not use `go install` for library dependencies — that installs binaries, not libraries. Use `go get`.
 
-Command String Constants
-------------------------
-
-All Cobra command and flag names are defined as constants in `src/cmd/command_str_consts.go`. When adding a new command or flag, add its string constant there first, then reference the constant in the command definition. This keeps command names defined in exactly one place.
-
 Required Workflows
 ------------------
 
 These are interactive skills that guide you through a multi-step workflow. Invoke them and follow their instructions — do not attempt to replicate their behavior manually.
+
+### Adding commands
+
+Invoke `/new-command` when adding a CLI command or subcommand. The skill scaffolds the command file, test file, and wires it into the parent following the directory-per-command convention.
 
 ### New features
 

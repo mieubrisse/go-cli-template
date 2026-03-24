@@ -21,7 +21,7 @@ builds:
       - arm64
     ldflags:
       - -s -w
-      - -X github.com/owner-replaceme/project-replaceme/internal/version.Version={{.Version}}
+      - -X github.com/owner-replaceme/project-replaceme/internal/buildinfo.Version={{.Version}}
 
 archives:
   - id: project-replaceme
