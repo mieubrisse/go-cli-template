@@ -24,7 +24,7 @@
     },
     "sandbox": {
         "filesystem": {
-            "allowWrite": ["//tmp", "//private/tmp/claude"]
+            "allowWrite": ["//tmp", "//private/tmp/claude", "~/Library/Caches/go-build", "~/.cache/go-build"]
         },
         "excludedCommands": ["bd", "dolt"],
         "network": {

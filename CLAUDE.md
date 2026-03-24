@@ -41,7 +41,7 @@ _build/project-replaceme
 _build/project-replaceme version
 ```
 
-Always run `make build`, `make check`, and `make test` with `dangerouslyDisableSandbox: true` — these commands access the Go build cache (`~/Library/Caches/go-build` or `~/.cache/go-build`), which is outside the default sandbox write permissions.
+The sandbox is configured to allow writes to the Go build cache, so `make build`, `make check`, and `make test` work without disabling the sandbox.
 
 Dependencies
 ------------
@@ -89,3 +89,5 @@ bd close <id>     # Complete an issue
 ```
 
 Run `bd prime` for full workflow details.
+
+If `bd` is not installed, issue tracking commands will fail. Install it before using any `bd` commands. The git hooks handle a missing `bd` gracefully — they skip beads integration and continue — so a missing `bd` will not block commits.
