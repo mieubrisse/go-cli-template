@@ -19,7 +19,9 @@
             "Read(./secrets/**)",
             "Bash(rm -rf:*)",
             "Bash(sudo:*)",
-            "Bash(git commit --no-verify:*)"
+            "Bash(git commit --no-verify:*)",
+            "Bash(bd reset:*)",
+            "Bash(bd gc:*)"
         ]
     },
     "sandbox": {
