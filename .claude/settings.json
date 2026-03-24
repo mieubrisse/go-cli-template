@@ -21,6 +21,10 @@
             "Bash(sudo:*)",
             "Bash(git commit --no-verify:*)",
             "Bash(bd reset:*)",
+            "Bash(bd delete:*)",
+            "Bash(bd admin cleanup:*)",
+            "Bash(bd admin compact:*)",
+            "Bash(bd purge:*)",
             "Bash(bd gc:*)"
         ]
     },
