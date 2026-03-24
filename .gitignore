@@ -24,7 +24,9 @@ Thumbs.db
 .env
 .env.*
 
-# Beads / Dolt files (added by bd init)
+# Beads / Dolt runtime files (created by bd init)
+.beads/
 .dolt/
 *.db
 .beads-credential-key
+AGENTS.md
