@@ -41,7 +41,18 @@ _build/project-replaceme
 _build/project-replaceme version
 ```
 
-**Sandbox note:** `make build` and `make check` access the Go build cache (`~/Library/Caches/go-build` or `~/.cache/go-build`), which is outside the default sandbox write permissions. Set `dangerouslyDisableSandbox: true` in the Bash tool call when running these commands.
+Always run `make build`, `make check`, and `make test` with `dangerouslyDisableSandbox: true` — these commands access the Go build cache (`~/Library/Caches/go-build` or `~/.cache/go-build`), which is outside the default sandbox write permissions.
+
+Dependencies
+------------
+
+To add a Go library dependency, run from the `src/` directory:
+
+```bash
+cd src && go get <package>@latest && go mod tidy
+```
+
+Do not use `go install` for library dependencies — that installs binaries, not libraries. Use `go get`.
 
 Command String Constants
 ------------------------
@@ -50,6 +61,8 @@ All Cobra command and flag names are defined as constants in `src/cmd/command_st
 
 Required Workflows
 ------------------
+
+These are interactive skills that guide you through a multi-step workflow. Invoke them and follow their instructions — do not attempt to replicate their behavior manually.
 
 ### New features
 
