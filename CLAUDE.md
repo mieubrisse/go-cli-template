@@ -30,7 +30,7 @@ Always build via the Makefile — it injects the version string via ldflags from
 make build      # Full pipeline: configure hooks → check → compile
 make compile    # Build the binary only (skip checks)
 make run        # Build and run (pass args via ARGS="...")
-make check      # Formatting (gofmt) → static analysis (go vet) → tests
+make check      # Formatting (gofmt) → vet → lint (golangci-lint) → tests
 make test       # Tests only
 make clean      # Remove _build/
 ```

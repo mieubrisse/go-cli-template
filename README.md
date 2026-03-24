@@ -50,6 +50,7 @@ Development
 
 - [Go](https://go.dev/dl/) (version specified in `src/go.mod`)
 - [GNU Make](https://www.gnu.org/software/make/)
+- [golangci-lint](https://golangci-lint.run/welcome/install/) (`brew install golangci-lint`)
 
 ### Getting started
 

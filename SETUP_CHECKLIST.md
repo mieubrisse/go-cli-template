@@ -11,10 +11,9 @@ This checklist is consumed by the `/initialize-repo` skill. Run that skill inste
 - [ ] Choose a license and create the LICENSE file
 - [ ] Update the `license` field in `.goreleaser.yaml`
 - [ ] Create Homebrew tap repo: `gh repo create <owner>/homebrew-<project> --public --description "Homebrew tap for <project>"`
-- [ ] Enable tag protection on the code repo for `v*` tags
+- [ ] 🚨 USER ACTION: Enable release immutability on the code repo (Settings → General → Release Immutability)
 - [ ] 🚨 USER ACTION: Create a fine-grained PAT with write access to the tap repo, add as `HOMEBREW_TAP_TOKEN` secret in the code repo's GitHub settings (Settings → Secrets and variables → Actions → New repository secret)
 - [ ] Verify: `make build` passes
-- [ ] Verify: `goreleaser check` passes
 - [ ] Remove the template usage callout from the top of README.md
 - [ ] Delete this file (SETUP_CHECKLIST.md)
 - [ ] Delete `.claude/skills/initialize-repo/`

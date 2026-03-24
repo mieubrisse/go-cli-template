@@ -12,7 +12,7 @@
             "Bash(golangci-lint:*)",
             "Bash(bd:*)",
             "Bash(goreleaser:*)",
-            "Bash(gh run watch:*)"
+            "Bash(gh:*)"
         ],
         "deny": [
             "Read(./.env)",

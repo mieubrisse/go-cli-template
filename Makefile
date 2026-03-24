@@ -6,7 +6,7 @@ GIT_TAG   := $(shell git describe --tags --exact-match HEAD 2>/dev/null)
 
 ifeq ($(GIT_DIRTY),clean)
   ifneq ($(GIT_TAG),)
-    VERSION := $(GIT_TAG)
+    VERSION := $(patsubst v%,%,$(GIT_TAG))
   else
     VERSION := $(GIT_HASH)
   endif
@@ -42,7 +42,10 @@ check:
 	@echo "✓ Formatting OK"
 	@echo "Running go vet..."
 	@cd src && go vet ./...
-	@echo "✓ Static analysis OK"
+	@echo "✓ Vet OK"
+	@echo "Running golangci-lint..."
+	@cd src && golangci-lint run ./...
+	@echo "✓ Lint OK"
 	@echo "Running tests..."
 	@cd src && go test ./...
 	@echo "✓ Tests passed"
