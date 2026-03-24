@@ -1,0 +1,58 @@
+version: 2
+
+project_name: project-replaceme
+
+before:
+  hooks:
+    - cd src && go mod tidy
+
+builds:
+  - id: project-replaceme
+    dir: src
+    main: ./main.go
+    binary: project-replaceme
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/owner-replaceme/project-replaceme/internal/version.Version={{.Version}}
+
+archives:
+  - id: project-replaceme
+    formats:
+      - tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+      - "^chore:"
+
+brews:
+  - name: project-replaceme
+    repository:
+      owner: owner-replaceme
+      name: homebrew-project-replaceme
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    directory: Formula
+    homepage: "https://github.com/owner-replaceme/project-replaceme"
+    description: "project-replaceme CLI"
+    license: ""
+    install: |
+      bin.install "project-replaceme"
+    test: |
+      system "#{bin}/project-replaceme", "version"

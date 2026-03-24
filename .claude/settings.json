@@ -1,0 +1,60 @@
+{
+    "permissions": {
+        "allow": [
+            "Read(./**)",
+            "Edit(./**)",
+            "Write(./**)",
+            "Glob(./**)",
+            "Grep(./**)",
+            "Bash(go:*)",
+            "Bash(make:*)",
+            "Bash(gofmt:*)",
+            "Bash(golangci-lint:*)",
+            "Bash(bd:*)",
+            "Bash(goreleaser:*)"
+        ],
+        "deny": [
+            "Read(./.env)",
+            "Read(./.env.*)",
+            "Read(./secrets/**)",
+            "Bash(rm -rf:*)",
+            "Bash(sudo:*)",
+            "Bash(git commit --no-verify:*)"
+        ]
+    },
+    "sandbox": {
+        "filesystem": {
+            "allowWrite": ["//tmp", "//private/tmp/claude"]
+        },
+        "excludedCommands": ["bd", "dolt"],
+        "network": {
+            "allowLocalBinding": true,
+            "allowedDomains": ["127.0.0.1", "localhost"],
+            "allowUnixSockets": ["//tmp/claude", "//private/tmp/claude"]
+        }
+    },
+    "hooks": {
+        "SessionStart": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bd prime"
+                    }
+                ]
+            }
+        ],
+        "PreCompact": [
+            {
+                "matcher": "",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "bd prime"
+                    }
+                ]
+            }
+        ]
+    }
+}
