@@ -1,12 +1,13 @@
-> This is a template repo for creating Go CLIs managed by Claude.
+> **This is a template for Go CLIs.** Clone it and get a working project with:
 >
-> Use it and you'll get:
-> - Claude-meditated onboarding
-> - Github Actions -> publish to Homebrew set up
-> - Automatic Homebrew publishing
-> - Automatic bootstrapping via Claude
+> - **Claude-guided onboarding** — run `/initialize-repo` and an agent sets up the repo, creates your Homebrew tap, and configures GitHub
+> - **CI and Homebrew publishing** — push a version tag and GitHub Actions builds binaries and publishes to your Homebrew tap automatically
+> - **Issue tracking with Beads** — `bd` integration baked into git hooks and Claude config, backed by a shared Dolt server
+> - **Git hooks enforcing quality gates** — formatting, vet, and tests run on every commit structurally, not by convention
+> - **Automatic version injection** — the binary reports its real version from git tags via ldflags
+> - **Claude skills for the dev lifecycle** — `/releasing` for semver tagging, `/brainstorm` before new features, `/technical-writer` for docs
 >
-> To use it:
+> To get started:
 > 1. Click **"Use this template"** on GitHub to create your repo
 > 2. Clone your new repo and open it in [Claude Code](https://claude.com/claude-code)
 > 3. Run `/initialize-repo` to configure the project
