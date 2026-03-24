@@ -1,11 +1,18 @@
-project-replaceme
-=================
-
-> **This is a template repo.** To create a new CLI project from it:
+> This is a template repo for creating Go CLIs managed by Claude.
 >
+> Use it and you'll get:
+> - Claude-meditated onboarding
+> - Github Actions -> publish to Homebrew set up
+> - Automatic Homebrew publishing
+> - Automatic bootstrapping via Claude
+>
+> To use it:
 > 1. Click **"Use this template"** on GitHub to create your repo
 > 2. Clone your new repo and open it in [Claude Code](https://claude.com/claude-code)
 > 3. Run `/initialize-repo` to configure the project
+
+project-replaceme
+=================
 
 A command-line tool built with Go and [Cobra](https://github.com/spf13/cobra).
 
