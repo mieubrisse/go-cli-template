@@ -90,4 +90,8 @@ bd close <id>     # Complete an issue
 
 Run `bd prime` for full workflow details.
 
-If `bd` is not installed, issue tracking commands will fail. Install it before using any `bd` commands. The git hooks handle a missing `bd` gracefully — they skip beads integration and continue — so a missing `bd` will not block commits.
+If `bd` is not installed, issue tracking commands will fail. The git hooks handle a missing `bd` gracefully — they skip beads integration and continue — so a missing `bd` will not block commits. To install beads:
+
+```bash
+brew install steveyegge/beads/beads
+```
