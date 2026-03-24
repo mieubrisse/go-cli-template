@@ -18,7 +18,7 @@ LDFLAGS   := -X $(VERSION_PKG).Version=$(VERSION)
 BINARY    := project-replaceme
 BUILD_DIR := _build
 
-.PHONY: build check clean compile setup test
+.PHONY: build check clean compile run setup test
 
 setup:
 	@if git rev-parse --git-dir >/dev/null 2>&1; then \
@@ -54,6 +54,9 @@ compile:
 	@echo "✓ Build complete: $(BUILD_DIR)/$(BINARY)"
 
 build: setup check compile
+
+run: compile
+	@$(BUILD_DIR)/$(BINARY) $(ARGS)
 
 test:
 	@echo "Running tests..."

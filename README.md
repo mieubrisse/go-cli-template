@@ -1,9 +1,11 @@
-> **This is a template for Go CLIs.** Clone it and get a working project with:
+> # This is a template for Go CLIs
+> Clone it and get a working project with:
 >
 > - **Claude-guided onboarding** — run `/initialize-repo` and an agent sets up the repo, creates your Homebrew tap, and configures GitHub
 > - **CI and Homebrew publishing** — push a version tag and GitHub Actions builds binaries and publishes to your Homebrew tap automatically
 > - **Issue tracking with Beads** — `bd` integration baked into git hooks and Claude config, backed by a shared Dolt server
 > - **Git hooks enforcing quality gates** — formatting, vet, and tests run on every commit structurally, not by convention
+> - **Make automation** — build, check, test, run, and compile targets ready to go
 > - **Automatic version injection** — the binary reports its real version from git tags via ldflags
 > - **Claude skills for the dev lifecycle** — `/releasing` for semver tagging, `/brainstorm` before new features, `/technical-writer` for docs
 >
@@ -69,11 +71,20 @@ make build
 | `make compile` | Build the binary only (skip checks) |
 | `make check` | Run formatting, static analysis, and tests |
 | `make test` | Run the test suite only |
+| `make run` | Build and run the binary (pass args via `ARGS="..."`) |
 | `make clean` | Remove build artifacts |
 
 ### Running the binary
 
-After building, run the CLI from the repo root:
+Use `make run` to build and run in one step:
+
+```bash
+make run
+make run ARGS="version"
+make run ARGS="--help"
+```
+
+Or run the compiled binary directly:
 
 ```bash
 _build/project-replaceme

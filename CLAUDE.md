@@ -29,16 +29,17 @@ Always build via the Makefile — it injects the version string via ldflags from
 ```bash
 make build      # Full pipeline: configure hooks → check → compile
 make compile    # Build the binary only (skip checks)
+make run        # Build and run (pass args via ARGS="...")
 make check      # Formatting (gofmt) → static analysis (go vet) → tests
 make test       # Tests only
 make clean      # Remove _build/
 ```
 
-Run the binary from the repo root:
+Use `make run` to build and run the binary in one step:
 
 ```bash
-_build/project-replaceme
-_build/project-replaceme version
+make run
+make run ARGS="version"
 ```
 
 The sandbox is configured to allow writes to the Go build cache, so `make build`, `make check`, and `make test` work without disabling the sandbox.
