@@ -12,7 +12,9 @@
             "Bash(golangci-lint:*)",
             "Bash(bd:*)",
             "Bash(goreleaser:*)",
-            "Bash(gh:*)"
+            "Bash(gh:*)",
+            "Bash(govulncheck:*)",
+            "Bash(deadcode:*)"
         ],
         "deny": [
             "Read(./.env)",
@@ -31,9 +33,11 @@
     },
     "sandbox": {
         "filesystem": {
-            "allowWrite": ["//tmp", "//private/tmp/claude", "~/Library/Caches/go-build", "~/.cache/go-build"]
+            "allowWrite": ["//tmp", "//private/tmp/claude", "~/Library/Caches/go-build", "~/.cache/go-build", "~/Library/Caches/golangci-lint"]
         },
-        "network": {}
+        "network": {
+            "allowedHosts": ["vuln.go.dev"]
+        }
     },
     "hooks": {
         "SessionStart": [
