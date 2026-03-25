@@ -94,6 +94,19 @@ _build/project-replaceme
 _build/project-replaceme version
 ```
 
+### Syncing with the template repo
+
+This project was generated from [go-cli-template](https://github.com/mieubrisse/go-cli-template). The `.source-template.yml` file tracks the upstream template repo and the last commit that was synced into this project.
+
+To bring in improvements from the template, an agent should:
+
+1. Read `.source-template.yml` to get the upstream repo and `lastSyncedCommit`
+2. Diff the template repo from `lastSyncedCommit` to its current `HEAD`
+3. Review each change and decide whether it applies — the downstream repo will have diverged from the template (renamed packages, added commands, different dependencies), so changes should be adapted, not blindly copied
+4. After applying the relevant changes, update `lastSyncedCommit` in `.source-template.yml` to the template's current `HEAD`
+
+Not every upstream change will be relevant. The agent should use judgment about what fits the downstream project.
+
 ### Project layout
 
 ```
