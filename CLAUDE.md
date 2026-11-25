@@ -15,7 +15,6 @@ src/                    Go source code (module: github.com/owner-replaceme/proje
   main.go              Entry point — calls cmd.Execute()
 _build/                 Build output (gitignored)
 .githooks/              Git hooks (configured via make setup)
-.beads/                 Beads issue tracking config
 .claude/                Claude Code settings and skills
 .github/workflows/      CI and release automation
 ```
@@ -101,19 +100,4 @@ Invoke `/releasing` to tag and publish a new version. The skill walks through pr
 Issue Tracking
 --------------
 
-This project uses **bd** (Beads) for issue tracking, configured in shared Dolt server mode. The server runs at `127.0.0.1` and auto-starts when needed.
-
-```bash
-bd prime          # Load workflow context
-bd ready          # Find unblocked work
-bd create "Title" # Create an issue
-bd close <id>     # Complete an issue
-```
-
-Run `bd prime` for full workflow details.
-
-If `bd` is not installed, issue tracking commands will fail. The git hooks handle a missing `bd` gracefully — they skip beads integration and continue — so a missing `bd` will not block commits. To install beads:
-
-```bash
-brew install steveyegge/beads/beads
-```
+Where the `/linear-system` skill is available, work on this repo is tracked in Linear, each issue carrying this repo's label from the `repo` group. Invoke `/linear-system` before reading or writing there; it covers the labels, including a repo that has none yet.

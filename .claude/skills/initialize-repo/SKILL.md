@@ -2,8 +2,8 @@
 name: initialize-repo
 description: >-
   Transforms this template repo into a real project. Invoke after cloning a repo
-  created from the Go CLI template. Replaces placeholder names, configures Beads,
-  creates the Homebrew tap repo, and sets up GitHub release infrastructure.
+  created from the Go CLI template. Replaces placeholder names, creates the
+  Homebrew tap repo, and sets up GitHub release infrastructure.
   Self-destructs after completion.
 ---
 

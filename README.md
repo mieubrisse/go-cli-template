@@ -3,7 +3,6 @@
 >
 > - **Claude-guided onboarding** — run `/initialize-repo` and an agent sets up the repo, creates your Homebrew tap, and configures GitHub
 > - **CI and Homebrew publishing** — push a version tag and GitHub Actions builds binaries and publishes to your Homebrew tap automatically
-> - **Issue tracking with Beads** — `bd` integration baked into git hooks and Claude config, backed by a shared Dolt server
 > - **Git hooks enforcing quality gates** — formatting, vet, and tests run on every commit structurally, not by convention
 > - **Make automation** — build, check, test, run, and compile targets ready to go
 > - **Automatic version injection** — the binary reports its real version from git tags via ldflags
