@@ -100,4 +100,4 @@ Invoke `/releasing` to tag and publish a new version. The skill walks through pr
 Issue Tracking
 --------------
 
-Work on this repo is tracked in Linear, each issue carrying this repo's label from the `repo` group. Invoke `/linear-system` before reading or writing there; it covers the labels, including a repo that has none yet.
+Where the `/linear-system` skill is available, work on this repo is tracked in Linear, each issue carrying this repo's label from the `repo` group. Invoke `/linear-system` before reading or writing there; it covers the labels, including a repo that has none yet.
