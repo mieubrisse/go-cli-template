@@ -38,29 +38,5 @@
         "network": {
             "allowedHosts": ["vuln.go.dev"]
         }
-    },
-    "hooks": {
-        "SessionStart": [
-            {
-                "matcher": "",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "bd prime"
-                    }
-                ]
-            }
-        ],
-        "PreCompact": [
-            {
-                "matcher": "",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "bd prime"
-                    }
-                ]
-            }
-        ]
     }
 }
